@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video with Yellow Buttons</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+      flex-direction: column;
+    }
+    video {
+      width: 100%;
+      height: auto;
+    }
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #FFD700; /* สีเหลืองทอง */
+      color: #000; /* สีตัวอักษรดำ */
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #FFC300; /* สีเหลืองเข้มขึ้นเมื่อ hover */
+    }
+  </style>
+</head>
+<body>
+  <video id="videoPlayer" controls autoplay muted></video>
+  <div class="button-container">
+    <button id="muteButton">เปิดเสียง</button> <!-- เปลี่ยนเป็น "เปิดเสียง" -->
+    <button id="fullscreenButton">ขยายหน้าจอ</button> <!-- เปลี่ยนเป็น "ขยายหน้าจอ" -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('videoPlayer');
+    const muteButton = document.getElementById('muteButton');
+    const fullscreenButton = document.getElementById('fullscreenButton');
+    const videoSrc = 'https://main.24playerhd.com/newplaylist/277034fde816ee3b39d1328c/277034fde816ee3b39d1328c.m3u8'; // URL ของไฟล์ m3u8
+
+    // ตั้งค่า HLS.js
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.volume = 0.5; // ตั้งค่าเสียงเริ่มต้น 50%
+        video.play().catch(err => {
+          console.error('Autoplay failed:', err);
+        });
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Safari รองรับ m3u8 โดยตรง
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', () => {
+        video.volume = 0.5; // ตั้งค่าเสียงเริ่มต้น 50%
+        video.play();
+      });
+    } else {
+      console.error('HLS is not supported in this browser.');
+    }
+
+    // ฟังก์ชันเปิด/ปิดเสียง
+    muteButton.addEventListener('click', () => {
+      if (video.muted) {
+        video.muted = false;
+        muteButton.textContent = 'ปิดเสียง'; // เปลี่ยนเป็น "ปิดเสียง"
+      } else {
+        video.muted = true;
+        muteButton.textContent = 'เปิดเสียง'; // เปลี่ยนเป็น "เปิดเสียง"
+      }
+    });
+
+    // ฟังก์ชันเล่นวิดีโอแบบเต็มจอ
+    fullscreenButton.addEventListener('click', () => {
+      if (video.requestFullscreen) {
+        video.requestFullscreen(); // เปิด fullscreen
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen(); // Safari
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen(); // IE/Edge
+      } else {
+        console.error('Fullscreen is not supported in this browser.');
+      }
+    });
+  </script>
+</body>
+</html>
