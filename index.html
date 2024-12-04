@@ -9,7 +9,11 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #000000; /* พื้นหลังสีดำ */
+      background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/dark_embroidery.png'); /* URL ของภาพพื้นหลัง */
+      background-size: cover; /* ขยายภาพให้ครอบคลุมเต็มจอ */
+      background-repeat: no-repeat; /* ไม่ทำซ้ำ */
+      background-attachment: fixed; /* ภาพเลื่อนตามการเลื่อนจอ */
+      background-position: center; /* วางภาพตรงกลาง */
       color: #ffffff; /* ข้อความสีขาว */
     }
 
@@ -35,7 +39,7 @@
     }
 
     .series-item {
-      background-color: #1a1a1a; /* กรอบรูปสีดำเข้ม */
+      background-color: rgba(0, 0, 0, 0.8); /* กรอบสีดำโปร่งแสง */
       border: 1px solid #333333; /* กรอบสีเทา */
       border-radius: 12px; /* มุมโค้ง */
       padding: 15px;
@@ -45,7 +49,7 @@
     }
 
     .series-item:hover {
-      background-color: #333333; /* สีพื้นหลังเมื่อ hover */
+      background-color: rgba(51, 51, 51, 0.9); /* สีพื้นหลังเมื่อ hover */
       transform: scale(1.05); /* ขยายขนาดเล็กน้อย */
     }
 
@@ -85,7 +89,7 @@
 </head>
 <body>
   <div class="playlist-container">
-    <h1></h1>
+    <h1>Playlist จำแนก</h1>
     <div class="series-grid">
       <div class="series-item">
         <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
