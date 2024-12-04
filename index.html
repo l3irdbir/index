@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist จำแนก</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000; /* พื้นหลังสีดำ */
-            color: #fff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist จำแนก</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000; /* พื้นหลังสีดำ */
+      color: #ffffff; /* ข้อความสีขาว */
+    }
 
-        .playlist-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
+    .playlist-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #ddd; /* สีข้อความหัวข้อ */
-        }
+    h1 {
+      margin-bottom: 30px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffcc00; /* หัวข้อสีเหลืองทอง */
+    }
 
-        .series-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; /* ระยะห่างระหว่างไอเท็ม */
+      padding: 10px;
+    }
 
-        .series-item {
-            background-color: #333333; /* พื้นหลังตรงรูปเป็นสีเทาเข้ม */
-            border: 1px solid #444;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
+    .series-item {
+      background-color: #1a1a1a; /* กรอบรูปสีดำเข้ม */
+      border: 1px solid #333333; /* กรอบสีเทา */
+      border-radius: 12px; /* มุมโค้ง */
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* เงาแบบนุ่ม */
+      text-align: center;
+      transition: transform 0.3s, background-color 0.3s; /* เพิ่มการเคลื่อนไหว */
+    }
 
-        .series-item img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
+    .series-item:hover {
+      background-color: #333333; /* สีพื้นหลังเมื่อ hover */
+      transform: scale(1.05); /* ขยายขนาดเล็กน้อย */
+    }
 
-        .series-item p {
-            margin: 0;
-            font-size: 16px;
-            color: #fff; /* สีข้อความในกล่องรูป */
-        }
+    .series-item img {
+      width: 200px; /* ความกว้างสูงสุด 200px */
+      height: 200px; /* ความสูงสูงสุด 200px */
+      border-radius: 8px; /* ขอบโค้ง */
+      object-fit: cover; /* ให้ภาพพอดีกับกรอบ */
+      margin: 0 auto 10px; /* จัดให้อยู่กลางและเพิ่มระยะห่างด้านล่าง */
+    }
 
-        .series-item a {
-            text-decoration: none;
-            color: inherit;
-        }
+    .series-item p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffcc00; /* ข้อความสีเหลืองทอง */
+    }
 
-        .series-item a:hover {
-            color: #007BFF;
-        }
-    </style>
+    .series-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* การตอบสนองต่อหน้าจอ */
+    @media (max-width: 768px) {
+      .series-item {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="playlist-container">
-        <h1>Playlist จำแนก</h1>
-        <div class="series-grid">
-            <div class="series-item">
-                <a href="https://raw.githack.com/l3irdbir/index/main/seriesthai2.html" target="_blank">
-                    <img src="https://t1.blockdit.com/photos/2021/12/61bcc7a968a0c32eec40e661_800x0xcover_VWk4piFq.jpg" alt="ภาพยนต์ไทย">
-                    <p>ภาพยนต์ไทย</p>
-                </a>
-            </div>
-            <div class="series-item">
-                <a href="https://raw.githack.com/l3irdbir/index/main/seriesthai2.html" target="_blank">
-                    <img src="https://img5.pic.in.th/file/secure-sv1/10----Netflix-1024x820.png" alt="ซีรีย์ไทย">
-                    <p>ซีรีย์ไทย</p>
-                </a>
-            </div>
-            <div class="series-item">
-                <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
-                    <img src="https://img5.pic.in.th/file/secure-sv1/bqvlsdrcq8sr.png" alt="ซีรีย์เกาหลี">
-                    <p>ซีรีย์เกาหลี</p>
-                </a>
-            </div>
-            <div class="series-item">
-                <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
-                    <img src="https://img.salehere.co.th/p/1200x0/2022/11/17/bq2qj5rajcpe.jpg" alt="หนังต่างประเทศ">
-                    <p>หนังต่างประเทศ</p>
-                </a>
-            </div>
-        </div>
+  <div class="playlist-container">
+    <h1></h1>
+    <div class="series-grid">
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://t1.blockdit.com/photos/2021/12/61bcc7a968a0c32eec40e661_800x0xcover_VWk4piFq.jpg" alt="ภาพยนต์ไทย">
+          <p>ภาพยนต์ไทย</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img5.pic.in.th/file/secure-sv1/10----Netflix-1024x820.png" alt="ซีรีย์ไทย">
+          <p>ซีรีย์ไทย</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img5.pic.in.th/file/secure-sv1/bqvlsdrcq8sr.png" alt="ซีรีย์เกาหลี">
+          <p>ซีรีย์เกาหลี</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img.salehere.co.th/p/1200x0/2022/11/17/bq2qj5rajcpe.jpg" alt="หนังต่างประเทศ">
+          <p>หนังต่างประเทศ</p>
+        </a>
+      </div>
     </div>
+  </div>
 </body>
 </html>
