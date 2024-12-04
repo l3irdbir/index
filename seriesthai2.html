@@ -22,6 +22,11 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
       padding: 15px;
+      text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
+      color: inherit; /* ใช้สีข้อความจาก CSS ของหน้า */
+    }
+    .item:hover {
+      background: #444444; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
     }
     .item img {
       width: 100px; /* ความกว้าง 100px */
@@ -42,33 +47,33 @@
   </style>
 </head>
 <body>
-  <h1></h1>
+  <h1>Playlist</h1>
   <div class="playlist">
-    <div class="item">
+    <a href="https://example.com/ticha" target="_blank" class="item">
       <img src="https://img2.pic.in.th/pic/lya8t4rvi80UoYQJmtB-o.jpg" alt="ทิชา">
       <div class="title">ทิชา</div>
       <div class="status">(ยังไม่จบ)</div>
-    </div>
-    <div class="item">
+    </a>
+    <a href="https://example.com/kong-ngang" target="_blank" class="item">
       <img src="https://www.123-hd.com/wp-content/uploads/2024/11/The-Scent-of-Hers-2024-%E0%B9%80%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B1%E0%B8%87%E0%B8%87%E0%B8%B2-300x450.jpg" alt="เก้ากระดั่งงา">
       <div class="title">เก้ากระดั่งงา</div>
       <div class="status">(ยังไม่จบ)</div>
-    </div>
-    <div class="item">
+    </a>
+    <a href="https://example.com/dirty-laundry" target="_blank" class="item">
       <img src="https://www.123-hd.com/wp-content/uploads/2023/01/Dirty-Laundry-300x450.png" alt="ซัก อบ ร้าย">
       <div class="title">ซัก อบ ร้าย นายสะอาด</div>
       <div class="status">(จบแล้ว)</div>
-    </div>
-    <div class="item">
+    </a>
+    <a href="https://example.com/secret-of-us" target="_blank" class="item">
       <img src="https://www.123-hd.com/wp-content/uploads/2024/06/The-Secret-of-us-Series-2024-%E0%B9%83%E0%B8%88%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%81-300x450.jpg" alt="ใจซ่อนรัก">
       <div class="title">ใจซ่อนรัก</div>
       <div class="status">(ยังไม่จบ)</div>
-    </div>
-    <div class="item">
+    </a>
+    <a href="https://example.com/queen-ayodhaya" target="_blank" class="item">
       <img src="https://www.123-hd.com/wp-content/uploads/2024/10/The-Empress-of-Ayodhaya-2024-%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%AB%E0%B8%A2%E0%B8%B1%E0%B8%A7-300x450.jpg" alt="แม่หยัว">
       <div class="title">แม่หยัว</div>
       <div class="status">(The Musical)</div>
-    </div>
+    </a>
   </div>
 </body>
 </html>
