@@ -9,12 +9,11 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/dark_embroidery.png'); /* URL ของภาพพื้นหลัง */
-      background-size: cover; /* ขยายภาพให้ครอบคลุมเต็มจอ */
-      background-repeat: no-repeat; /* ไม่ทำซ้ำ */
-      background-attachment: fixed; /* ภาพเลื่อนตามการเลื่อนจอ */
-      background-position: center; /* วางภาพตรงกลาง */
+      background-color: #000000; /* กำหนดพื้นหลังเป็นสีดำ */
       color: #ffffff; /* ข้อความสีขาว */
+      height: 100vh; /* กำหนดให้ความสูงของ body เท่ากับความสูงของหน้าจอ */
+      display: flex;
+      flex-direction: column;
     }
 
     .playlist-container {
@@ -22,6 +21,7 @@
       margin: 0 auto;
       padding: 20px;
       text-align: center;
+      flex-grow: 1; /* ทำให้เนื้อหาขยายเต็มจอ */
     }
 
     h1 {
