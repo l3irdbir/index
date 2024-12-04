@@ -48,6 +48,7 @@
   <video id="video" controls muted></video>
 
   <div class="controls">
+    <button id="playPauseBtn">เล่น</button>
     <button id="muteBtn">เปิดเสียง</button>
     <button id="fullscreenBtn">ขยายหน้าจอ</button>
   </div>
@@ -55,6 +56,7 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     const video = document.getElementById('video');
+    const playPauseBtn = document.getElementById('playPauseBtn');
     const muteBtn = document.getElementById('muteBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
 
@@ -69,6 +71,17 @@
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       video.src = videoSrc;
     }
+
+    // ปุ่มเล่น/หยุด
+    playPauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = 'หยุด';
+      } else {
+        video.pause();
+        playPauseBtn.textContent = 'เล่น';
+      }
+    });
 
     // ปุ่มเปิด/ปิดเสียง
     muteBtn.addEventListener('click', () => {
