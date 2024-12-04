@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>โปรแกรมเล่นวิดีโอ M3U8</title>
+  <title>โปรแกรมเล่นวิดีโอ</title>
   <style>
     body {
       margin: 0;
@@ -12,11 +12,12 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      flex-direction: column;
     }
-    video {
-      width: 100%;
-      height: 100%;
-      background: black;
+    iframe {
+      width: 80%;
+      height: 80%;
+      border: none;
     }
     .controls {
       position: absolute;
@@ -45,50 +46,38 @@
 </head>
 <body>
 
-  <video id="video" controls muted></video>
+  <iframe id="videoFrame" src="https://playermhd.p2phls.xyz/embed/qdn9jcwq60?autoplay=1" allowfullscreen></iframe>
 
   <div class="controls">
     <button id="muteBtn">เปิดเสียง</button>
     <button id="fullscreenBtn">ขยายหน้าจอ</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
-    const video = document.getElementById('video');
     const muteBtn = document.getElementById('muteBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const iframe = document.getElementById('videoFrame');
 
-    // URL ของไฟล์ m3u8
-    const videoSrc = 'https://main.24playerhd.com/m3u8/4de61dbaea883ffb5d7db3f3/4de61dbaea883ffb5d7db3f3438.m3u8'; // เปลี่ยนเป็น URL จริง
-
-    // ตรวจสอบว่าเบราว์เซอร์รองรับการเล่น m3u8 หรือไม่
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(videoSrc);
-      hls.attachMedia(video);
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoSrc;
-    }
+    let isMuted = false;
 
     // ปุ่มเปิด/ปิดเสียง
     muteBtn.addEventListener('click', () => {
-      video.muted = !video.muted;
-      muteBtn.textContent = video.muted ? 'เปิดเสียง' : 'ปิดเสียง';
+      isMuted = !isMuted;
+      muteBtn.textContent = isMuted ? 'เปิดเสียง' : 'ปิดเสียง';
+      // ส่งคำสั่งไปยัง iframe (ต้องการพารามิเตอร์จาก URL ของ iframe)
+      iframe.src = isMuted ? "https://playermhd.p2phls.xyz/embed/qdn9jcwq60?autoplay=1&mute=1" : "https://playermhd.p2phls.xyz/embed/qdn9jcwq60?autoplay=1&mute=0";
     });
 
-    // ปุ่มขยายจอ
+    // ปุ่มขยายหน้าจอ
     fullscreenBtn.addEventListener('click', () => {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitRequestFullscreen) { // Safari
-        video.webkitRequestFullscreen();
-      } else if (video.msRequestFullscreen) { // IE/Edge
-        video.msRequestFullscreen();
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) { // Safari
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) { // IE/Edge
+        iframe.msRequestFullscreen();
       }
     });
-
-    // เล่นวิดีโออัตโนมัติเมื่อโหลดเสร็จ
-    video.autoplay = true;
   </script>
 
 </body>
