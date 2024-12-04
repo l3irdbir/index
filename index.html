@@ -3,87 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playlist</title>
+  <title>Playlist จำแนก</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #000000; /* พื้นหลังสีดำ */
+      background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/dark_embroidery.png'); /* URL ของภาพพื้นหลัง */
+      background-size: cover; /* ขยายภาพให้ครอบคลุมเต็มจอ */
+      background-repeat: no-repeat; /* ไม่ทำซ้ำ */
+      background-attachment: fixed; /* ภาพเลื่อนตามการเลื่อนจอ */
+      background-position: center; /* วางภาพตรงกลาง */
       color: #ffffff; /* ข้อความสีขาว */
-      height: 100vh; /* สูงเต็มหน้าจอ */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
     }
-    .playlist {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      width: 100%;
+
+    .playlist-container {
       max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
-    }
-    .item {
       text-align: center;
-      background: #333333; /* พื้นหลังสีเทาเข้ม */
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      padding: 15px;
-      text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
-      color: inherit; /* ใช้สีข้อความจาก CSS */
-      display: block; /* เพื่อให้ทั้งกล่องคลิกได้ */
     }
-    .item:hover {
-      background: #444444; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
-    }
-    .item img {
-      width: 100px; /* ความกว้าง 100px */
-      height: 150px; /* ความสูง 150px */
-      border-radius: 8px;
-      object-fit: cover;
-    }
-    .title {
-      margin-top: 10px;
-      font-size: 14px;
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 32px;
       font-weight: bold;
-      color: #ffffff; /* ข้อความสีขาว */
+      color: #ffcc00; /* หัวข้อสีเหลืองทอง */
     }
-    .status {
-      font-size: 12px;
-      color: #cccccc; /* ข้อความสีเทาอ่อน */
+
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; /* ระยะห่างระหว่างไอเท็ม */
+      padding: 10px;
+    }
+
+    .series-item {
+      background-color: rgba(0, 0, 0, 0.8); /* กรอบสีดำโปร่งแสง */
+      border: 1px solid #333333; /* กรอบสีเทา */
+      border-radius: 12px; /* มุมโค้ง */
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* เงาแบบนุ่ม */
+      text-align: center;
+      transition: transform 0.3s, background-color 0.3s; /* เพิ่มการเคลื่อนไหว */
+    }
+
+    .series-item:hover {
+      background-color: rgba(51, 51, 51, 0.9); /* สีพื้นหลังเมื่อ hover */
+      transform: scale(1.05); /* ขยายขนาดเล็กน้อย */
+    }
+
+    .series-item img {
+      width: 200px; /* ความกว้างสูงสุด 200px */
+      height: 200px; /* ความสูงสูงสุด 200px */
+      border-radius: 8px; /* ขอบโค้ง */
+      object-fit: cover; /* ให้ภาพพอดีกับกรอบ */
+      margin: 0 auto 10px; /* จัดให้อยู่กลางและเพิ่มระยะห่างด้านล่าง */
+    }
+
+    .series-item p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffcc00; /* ข้อความสีเหลืองทอง */
+    }
+
+    .series-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* การตอบสนองต่อหน้าจอ */
+    @media (max-width: 768px) {
+      .series-item {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Playlist</h1>
-  <div class="playlist">
-    <a href="https://example.com/ticha" target="_blank" class="item">
-      <img src="https://img2.pic.in.th/pic/lya8t4rvi80UoYQJmtB-o.jpg" alt="ทิชา">
-      <div class="title">ทิชา</div>
-      <div class="status">(ยังไม่จบ)</div>
-    </a>
-    <a href="https://example.com/kong-ngang" target="_blank" class="item">
-      <img src="https://www.123-hd.com/wp-content/uploads/2024/11/The-Scent-of-Hers-2024-%E0%B9%80%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B8%87%E0%B8%B2-300x450.jpg" alt="เก้ากระดั่งงา">
-      <div class="title">เก้ากระดั่งงา</div>
-      <div class="status">(ยังไม่จบ)</div>
-    </a>
-    <a href="https://example.com/dirty-laundry" target="_blank" class="item">
-      <img src="https://www.123-hd.com/wp-content/uploads/2023/01/Dirty-Laundry-300x450.png" alt="ซัก อบ ร้าย">
-      <div class="title">ซัก อบ ร้าย นายสะอาด</div>
-      <div class="status">(จบแล้ว)</div>
-    </a>
-    <a href="https://example.com/secret-of-us" target="_blank" class="item">
-      <img src="https://www.123-hd.com/wp-content/uploads/2024/06/The-Secret-of-us-Series-2024-%E0%B9%83%E0%B8%88%E0%B8%8B%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%81-300x450.jpg" alt="ใจซ่อนรัก">
-      <div class="title">ใจซ่อนรัก</div>
-      <div class="status">(ยังไม่จบ)</div>
-    </a>
-    <a href="https://example.com/queen-ayodhaya" target="_blank" class="item">
-      <img src="https://www.123-hd.com/wp-content/uploads/2024/10/The-Empress-of-Ayodhaya-2024-%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%AB%E0%B8%A2%E0%B8%B1%E0%B8%A7-300x450.jpg" alt="แม่หยัว">
-      <div class="title">แม่หยัว</div>
-      <div class="status">(The Musical)</div>
-    </a>
+  <div class="playlist-container">
+    <h1>Playlist จำแนก</h1>
+    <div class="series-grid">
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://t1.blockdit.com/photos/2021/12/61bcc7a968a0c32eec40e661_800x0xcover_VWk4piFq.jpg" alt="ภาพยนต์ไทย">
+          <p>ภาพยนต์ไทย</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img5.pic.in.th/file/secure-sv1/10----Netflix-1024x820.png" alt="ซีรีย์ไทย">
+          <p>ซีรีย์ไทย</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img5.pic.in.th/file/secure-sv1/bqvlsdrcq8sr.png" alt="ซีรีย์เกาหลี">
+          <p>ซีรีย์เกาหลี</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img.salehere.co.th/p/1200x0/2022/11/17/bq2qj5rajcpe.jpg" alt="หนังต่างประเทศ">
+          <p>หนังต่างประเทศ</p>
+        </a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
