@@ -1,141 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed Video with Controls</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
-            overflow: hidden;
-            flex-direction: column;
-        }
-        .video-container {
-            width: 80vw;
-            height: 45vw;
-            position: relative;
-            background-color: black;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 5%;
-        }
-        .controls {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 10;
-        }
-        .control-btn {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .control-btn:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        .control-btn:focus {
-            outline: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โปรแกรมเล่นวิดีโอ M3U8</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: yellow;
+      border: none;
+      padding: 10px 10px;
+      font-size: 13px;
+      cursor: pointer;
+      color: black;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: orange;
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
 </head>
 <body>
-    <div class="video-container">
-        <!-- ฝัง iframe ที่มี src เป็น URL ที่ให้มา -->
-        <iframe class="embed-responsive-item" src="https://main.abcplays.com/?id=9aa456ca957876b89f129369" allowfullscreen="" autoplay></iframe>
-        <div class="controls">
-            <!-- ปุ่ม Play/Pause -->
-            <button class="control-btn" id="playPauseBtn">Pause</button>
-            <!-- ปุ่ม Mute/Unmute -->
-            <button class="control-btn" id="muteUnmuteBtn">Mute</button>
-            <!-- ปุ่ม Fullscreen -->
-            <button class="control-btn" id="fullscreenBtn">Fullscreen</button>
-        </div>
-    </div>
 
-    <script>
-        const playPauseBtn = document.getElementById("playPauseBtn");
-        const muteUnmuteBtn = document.getElementById("muteUnmuteBtn");
-        const fullscreenBtn = document.getElementById("fullscreenBtn");
-        const iframe = document.querySelector('iframe');
-        let isPaused = false;
-        let isMuted = false;
+  <video id="video" controls muted></video>
 
-        // ปุ่ม Play/Pause
-        playPauseBtn.addEventListener("click", () => {
-            const video = iframe.contentWindow.document.querySelector("video");
-            if (video) {
-                if (isPaused) {
-                    video.play();
-                    playPauseBtn.textContent = "Pause";
-                } else {
-                    video.pause();
-                    playPauseBtn.textContent = "Play";
-                }
-                isPaused = !isPaused;
-            }
-        });
+  <div class="controls">
+    <button id="playPauseBtn">เล่น</button>
+    <button id="muteBtn">เปิดเสียง</button>
+    <button id="fullscreenBtn">ขยายหน้าจอ</button>
+  </div>
 
-        // ปุ่ม Mute/Unmute
-        muteUnmuteBtn.addEventListener("click", () => {
-            const video = iframe.contentWindow.document.querySelector("video");
-            if (video) {
-                if (isMuted) {
-                    video.muted = false;
-                    muteUnmuteBtn.textContent = "Mute";
-                } else {
-                    video.muted = true;
-                    muteUnmuteBtn.textContent = "Unmute";
-                }
-                isMuted = !isMuted;
-            } else {
-                // ถ้าไม่สามารถเข้าถึงวิดีโอภายใน iframe ได้ (บางเว็บไซต์อาจจำกัด)
-                iframe.contentWindow.postMessage({ action: "muteUnmute" }, "*");
-            }
-        });
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('video');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const muteBtn = document.getElementById('muteBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
 
-        // ปุ่ม Fullscreen
-        fullscreenBtn.addEventListener("click", () => {
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
-                iframe.msRequestFullscreen();
-            }
-        });
+    // URL ของไฟล์ m3u8
+    const videoSrc = 'https://m1-txt-2.xdomovie247.com/playlist2/detail/514ba16b/720/hls/index.m3u8'; // เปลี่ยนเป็น URL จริง
 
-        // ฟังก์ชันรับข้อความจาก iframe (ถ้าฝั่ง iframe รองรับ postMessage)
-        window.addEventListener("message", (event) => {
-            if (event.origin === "https://main.abcplays.com") {
-                const data = event.data;
-                if (data.action === "muteUnmute") {
-                    const video = iframe.contentWindow.document.querySelector("video");
-                    if (video) {
-                        isMuted = !isMuted;
-                        video.muted = isMuted;
-                        muteUnmuteBtn.textContent = isMuted ? "Unmute" : "Mute";
-                    }
-                }
-            }
-        });
-    </script>
+    // ตรวจสอบว่าเบราว์เซอร์รองรับการเล่น m3u8 หรือไม่
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+    }
+
+    // ปุ่มเล่น/หยุด
+    playPauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = 'หยุด';
+      } else {
+        video.pause();
+        playPauseBtn.textContent = 'เล่น';
+      }
+    });
+
+    // ปุ่มเปิด/ปิดเสียง
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? 'เปิดเสียง' : 'ปิดเสียง';
+    });
+
+    // ปุ่มขยายจอ
+    fullscreenBtn.addEventListener('click', () => {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) { // Safari
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) { // IE/Edge
+        video.msRequestFullscreen();
+      }
+    });
+
+    // เล่นวิดีโออัตโนมัติเมื่อโหลดเสร็จ
+    video.autoplay = true;
+  </script>
+
 </body>
 </html>
