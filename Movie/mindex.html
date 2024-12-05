@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Movies Page 1</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 5px;
-      background-color: #000000; /* พื้นหลังสีดำ */
-      color: #ffffff; /* ข้อความสีขาว */
+      background-color: #000000;
+      color: #ffffff;
     }
     .playlist {
       display: grid;
@@ -18,19 +18,19 @@
     }
     .item {
       text-align: center;
-      background: #333333; /* พื้นหลังสีเทาเข้ม */
+      background: #333333;
       border-radius: 8px;
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
       padding: 15px;
-      text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
-      color: inherit; /* ใช้สีข้อความจาก CSS ของหน้า */
+      text-decoration: none;
+      color: inherit;
     }
     .item:hover {
-      background: #444444; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+      background: #444444;
     }
     .item img {
-      width: 100px; /* ความกว้าง 100px */
-      height: 150px; /* ความสูง 150px */
+      width: 100px;
+      height: 150px;
       border-radius: 8px;
       object-fit: cover;
     }
@@ -38,43 +38,62 @@
       margin-top: 10px;
       font-size: 14px;
       font-weight: bold;
-      color: #ffffff; /* ข้อความสีขาว */
     }
     .status {
       font-size: 12px;
-      color: #cccccc; /* ข้อความสีเทาอ่อน */
+      color: #cccccc;
+    }
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .navigation a {
+      text-decoration: none;
+      background-color: #444444;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .navigation a:hover {
+      background-color: #555555;
     }
   </style>
 </head>
 <body>
-  <h1></h1>
+  <h1>Movies - Page 1</h1>
   <div class="playlist">
+    <!-- Movie Items -->
     <a href="https://l3irdbir.github.io/index/Movie/d1.html" target="_blank" class="item">
       <img src="https://i.ytimg.com/vi/tcDTBKPLotk/maxresdefault.jpg" alt="อำนาจ ศรัทธา อนาคต">
       <div class="title">Breaking the Cycle (2024) อำนาจ ศรัทธา อนาคต</div>
       <div class="status">(เสียงไทย)</div>
     </a>
-     <a href="https://l3irdbir.github.io/index/Movie/arun.html" target="_blank" class="item">
+<a href="https://l3irdbir.github.io/index/Movie/arun.html" target="_blank" class="item">
       <img src="https://img2.pic.in.th/pic/Regretfully-At-Dawn-2024-1-205x305.png" alt="Regretfully At Dawn (2024) อรุณกาล">
       <div class="title">Regretfully At Dawn (2024) อรุณกาล</div>
       <div class="status">(เสียงไทย)</div>
     </a>
-    <a href="https://l3irdbir.github.io/index/Movie/OperationUndead1.html" target="_blank" class="item">
+<a href="https://l3irdbir.github.io/index/Movie/OperationUndead1.html" target="_blank" class="item">
       <img src="https://static.naewna.com/uploads/news/source/820158.jpg" alt="Operation Undead (2024) ช.พ.๑ สมรภูมิคืนชีพ">
       <div class="title">Operation Undead (2024) ช.พ.๑ สมรภูมิคืนชีพ</div>
       <div class="status">(เสียงไทย)</div>
     </a>
-     <a href="https://l3irdbir.github.io/index/Movie/Cursed1.html" target="_blank" class="item">
+<a href="https://l3irdbir.github.io/index/Movie/Cursed1.html" target="_blank" class="item">
       <img src="https://m.media-amazon.com/images/M/MV5BOGFjYjBjMDYtZjhhMy00YWEzLWI5YTEtNzE0N2FjZmI0N2JmXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg" alt="Operation Undead (2024) ช.พ.๑ สมรภูมิคืนชีพ">
       <div class="title">แดนสาป (2024) The Cursed Land</div>
       <div class="status">(เสียงไทย)</div>
     </a>
-    <a href="https://l3irdbir.github.io/index/Movie/joynny.html" target="_blank" class="item">
-      <img src="https://tse1.mm.bing.net/th?id=OIP.3I9bpOEczXraR9Lam6obdgAAAA&pid=Api&P=0&h=180" alt="Johnny (2024) โคตรทีมรหัสลับ จอห์นนี่">
-      <div class="title">Johnny (2024) โคตรทีมรหัสลับ จอห์นนี่</div>
+<a href="https://l3irdbir.github.io/index/Movie/pu.html" target="_blank" class="item">
+      <img src="https://s.isanook.com/mv/0/rp/r/w728/ya0xa0m1w0/aHR0cHM6Ly9zLmlzYW5vb2suY29tL212LzAvc3RvcnlfcGljdHVyZS9tLzEwOTM3XzAwMi5qcGc=.jpg" alt="โหน่งเท่ง นักเลงภูเขาทอง">
+      <div class="title">โหน่งเท่ง นักเลงภูเขาทอง</div>
       <div class="status">(เสียงไทย)</div>
     </a>
-           </a>
+
+    <!-- Add more items here -->
+  </div>
+  <div class="navigation">
+    <a href="page2.html">Next</a>
   </div>
 </body>
 </html>
