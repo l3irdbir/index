@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Video with Controls</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .video-container {
+            width: 80vw;
+            height: 45vw;
+            position: relative;
+            background-color: black;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        .control-btn {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .control-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .control-btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <!-- เพิ่ม autoplay ใน src -->
+        <iframe id="videoIframe" class="embed-responsive-item" scrolling="no" 
+            src="https://main.abcplays.com/?id=afb601598fe523ca004a4823&autoplay=1" allowfullscreen="">
+        </iframe>
+        <div class="controls">
+            <!-- Play/Pause button -->
+            <button class="control-btn" id="playPauseBtn">Pause</button>
+            <!-- Mute/Unmute button -->
+            <button class="control-btn" id="muteUnmuteBtn">Mute</button>
+            <!-- Fullscreen button -->
+            <button class="control-btn" id="fullscreenBtn">Fullscreen</button>
+        </div>
+    </div>
+
+    <script>
+        const iframe = document.getElementById("videoIframe");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const muteUnmuteBtn = document.getElementById("muteUnmuteBtn");
+        const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+        let isPlaying = true;
+        let isMuted = false;
+
+        // Play/Pause functionality
+        playPauseBtn.addEventListener("click", () => {
+            if (isPlaying) {
+                // Pause the video
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                playPauseBtn.textContent = 'Play';
+            } else {
+                // Play the video
+                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                playPauseBtn.textContent = 'Pause';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Mute/Unmute functionality
+        muteUnmuteBtn.addEventListener("click", () => {
+            if (isMuted) {
+                // Unmute the video
+                iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                muteUnmuteBtn.textContent = 'Mute';
+            } else {
+                // Mute the video
+                iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                muteUnmuteBtn.textContent = 'Unmute';
+            }
+            isMuted = !isMuted;
+        });
+
+        // Fullscreen functionality
+        fullscreenBtn.addEventListener("click", () => {
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
