@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ฝังวิดีโอจากแหล่งอื่น</title>
+  <title>โปรแกรมเล่นวิดีโอ M3U8</title>
   <style>
     body {
       margin: 0;
@@ -13,16 +13,10 @@
       align-items: center;
       height: 100vh;
     }
-    .container {
-      position: relative;
-      width: 80%;
-      height: 80%;
-      background: black;
-    }
-    iframe {
+    video {
       width: 100%;
       height: 100%;
-      border: none;
+      background: black;
     }
     .controls {
       position: absolute;
@@ -31,25 +25,18 @@
       transform: translateX(-50%);
       display: flex;
       gap: 10px;
-      justify-content: center;
-      align-items: center;
     }
     button {
-      background: rgba(255, 255, 255, 0.5); /* พื้นหลังโปร่งใส */
+      background: yellow;
       border: none;
-      padding: 10px;
-      font-size: 14px;
+      padding: 10px 10px;
+      font-size: 13px;
       cursor: pointer;
-      color: white;
-      border-radius: 50%; /* ทำให้ปุ่มกลม */
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      color: black;
+      border-radius: 5px;
     }
     button:hover {
-      background: rgba(255, 165, 0, 0.8); /* สีโปร่งใสที่มีความเข้มขึ้นเมื่อ hover */
+      background: orange;
     }
     button:active {
       transform: scale(0.95);
@@ -58,28 +45,63 @@
 </head>
 <body>
 
-  <div class="container">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/i-fnzakVzRE?si=ZznFsrxxKmkGjI4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
-    <div class="controls">
-      <button id="fullscreenBtn"></button>
-    </div>
+  <video id="video" controls muted></video>
+
+  <div class="controls">
+    <button id="playPauseBtn">เล่น</button>
+    <button id="muteBtn">เปิดเสียง</button>
+    <button id="fullscreenBtn">ขยายหน้าจอ</button>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
+    const video = document.getElementById('video');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const muteBtn = document.getElementById('muteBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const iframe = document.getElementById('iframeVideo');
+
+    // URL ของไฟล์ m3u8
+    const videoSrc = 'https://m3-txt-2.xdomovie247.com/playlist2/detail/4b1b45ea/720/hls/index.m3u8'; // เปลี่ยนเป็น URL จริง
+
+    // ตรวจสอบว่าเบราว์เซอร์รองรับการเล่น m3u8 หรือไม่
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+    }
+
+    // ปุ่มเล่น/หยุด
+    playPauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = 'หยุด';
+      } else {
+        video.pause();
+        playPauseBtn.textContent = 'เล่น';
+      }
+    });
+
+    // ปุ่มเปิด/ปิดเสียง
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? 'เปิดเสียง' : 'ปิดเสียง';
+    });
 
     // ปุ่มขยายจอ
     fullscreenBtn.addEventListener('click', () => {
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) { // Safari
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) { // IE/Edge
-        iframe.msRequestFullscreen();
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) { // Safari
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) { // IE/Edge
+        video.msRequestFullscreen();
       }
     });
+
+    // เล่นวิดีโออัตโนมัติเมื่อโหลดเสร็จ
+    video.autoplay = true;
   </script>
 
 </body>
