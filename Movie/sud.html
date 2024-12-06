@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>โปรแกรมเล่นวิดีโอ M3U8</title>
+  <title></title>
   <style>
     body {
       margin: 0;
@@ -45,7 +45,10 @@
 </head>
 <body>
 
-  <video id="video" controls muted></video>
+  <video id="video" controls muted>
+    <source src="https://dedkub.cyou/hd/720/0004-LowSeason.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
   <div class="controls">
     <button id="playPauseBtn">เล่น</button>
@@ -53,24 +56,11 @@
     <button id="fullscreenBtn">ขยายหน้าจอ</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     const video = document.getElementById('video');
     const playPauseBtn = document.getElementById('playPauseBtn');
     const muteBtn = document.getElementById('muteBtn');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
-
-    // URL ของไฟล์ m3u8
-    const videoSrc = 'https://r3-sn-5fo-c37ed12.googleuservideo.com/dooflixvod8/f/content/movie/Thai/Low.Season.2020.TH.mp4/playlist.m3u8?audioIndex=0&wmsAuthSign=c2VydmVyX3RpbWU9MTIvNi8yMDI0IDk6MDY6NDQgQU0maGFzaF92YWx1ZT1tZXZSRzlQem14TEg2MXc0ZCtRNFpRPT0mdmFsaWRtaW51dGVzPTEmc3RybV9sZW49NTUmaWQ9bmRkLTM2NTM1; // เปลี่ยนเป็น URL จริง
-
-    // ตรวจสอบว่าเบราว์เซอร์รองรับการเล่น m3u8 หรือไม่
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(videoSrc);
-      hls.attachMedia(video);
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = videoSrc;
-    }
 
     // ปุ่มเล่น/หยุด
     playPauseBtn.addEventListener('click', () => {
