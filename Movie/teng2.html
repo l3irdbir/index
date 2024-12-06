@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โปรแกรมเล่นวิดีโอ M3U8</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: yellow;
+      border: none;
+      padding: 10px 10px;
+      font-size: 13px;
+      cursor: pointer;
+      color: black;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: orange;
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <video id="video" controls muted></video>
+
+  <div class="controls">
+    <button id="playPauseBtn">เล่น</button>
+    <button id="muteBtn">เปิดเสียง</button>
+    <button id="fullscreenBtn">ขยายหน้าจอ</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    const video = document.getElementById('video');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const muteBtn = document.getElementById('muteBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    // URL ของไฟล์ m3u8
+    const videoSrc = 'https://m5-txt-2.xdomovie247.com/playlist2/detail/ed8db742/720/hls/index.m3u8; // เปลี่ยนเป็น URL จริง
+
+    // ตรวจสอบว่าเบราว์เซอร์รองรับการเล่น m3u8 หรือไม่
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+    }
+
+    // ปุ่มเล่น/หยุด
+    playPauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        playPauseBtn.textContent = 'หยุด';
+      } else {
+        video.pause();
+        playPauseBtn.textContent = 'เล่น';
+      }
+    });
+
+    // ปุ่มเปิด/ปิดเสียง
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? 'เปิดเสียง' : 'ปิดเสียง';
+    });
+
+    // ปุ่มขยายจอ
+    fullscreenBtn.addEventListener('click', () => {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) { // Safari
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) { // IE/Edge
+        video.msRequestFullscreen();
+      }
+    });
+
+    // เล่นวิดีโออัตโนมัติเมื่อโหลดเสร็จ
+    video.autoplay = true;
+  </script>
+
+</body>
+</html>
