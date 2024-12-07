@@ -9,65 +9,62 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #000000; /* กำหนดพื้นหลังเป็นสีดำ */
-      color: #ffffff; /* ข้อความสีขาว */
-      height: 100vh; /* กำหนดให้ความสูงของ body เท่ากับความสูงของหน้าจอ */
+      background: linear-gradient(135deg, #000000, #333333); /* พื้นหลังแบบไล่สี */
+      color: #ffffff;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background-size: cover; /* ให้พื้นหลังครอบคลุมหน้าจอ */
-      background-position: center; /* จัดตำแหน่งพื้นหลังให้อยู่ตรงกลาง */
     }
 
     .playlist-container {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
       padding: 20px;
       text-align: center;
-      flex-grow: 1; /* ทำให้เนื้อหาขยายเต็มจอ */
+      flex-grow: 1;
     }
 
     h1 {
       margin-bottom: 30px;
-      font-size: 32px;
+      font-size: 36px;
       font-weight: bold;
-      color: #ffcc00; /* หัวข้อสีเหลืองทอง */
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     }
 
     .series-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px; /* ระยะห่างระหว่างไอเท็ม */
+      gap: 20px;
       padding: 10px;
     }
 
     .series-item {
-      background-color: rgba(0, 0, 0, 0.8); /* กรอบสีดำโปร่งแสง */
-      border: 1px solid #333333; /* กรอบสีเทา */
-      border-radius: 12px; /* มุมโค้ง */
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* เงาแบบนุ่ม */
-      text-align: center;
-      transition: transform 0.3s, background-color 0.3s; /* เพิ่มการเคลื่อนไหว */
+      background-color: rgba(255, 255, 255, 0.1); /* สีโปร่งแสง */
+      border-radius: 10px;
+      overflow: hidden; /* ซ่อนขอบภาพ */
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .series-item:hover {
-      background-color: rgba(51, 51, 51, 0.9); /* สีพื้นหลังเมื่อ hover */
-      transform: scale(1.05); /* ขยายขนาดเล็กน้อย */
+      transform: translateY(-10px); /* ยกการ์ดขึ้นเมื่อ hover */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
     }
 
     .series-item img {
-      width: 200px; /* ความกว้างสูงสุด 200px */
-      height: 200px; /* ความสูงสูงสุด 200px */
-      border-radius: 8px; /* ขอบโค้ง */
-      object-fit: cover; /* ให้ภาพพอดีกับกรอบ */
-      margin: 0 auto 10px; /* จัดให้อยู่กลางและเพิ่มระยะห่างด้านล่าง */
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
     .series-item p {
       margin: 0;
+      padding: 10px;
       font-size: 18px;
       font-weight: bold;
-      color: #ffcc00; /* ข้อความสีเหลืองทอง */
+      color: #ffcc00;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
     }
 
     .series-item a {
@@ -75,10 +72,9 @@
       color: inherit;
     }
 
-    /* การตอบสนองต่อหน้าจอ */
     @media (max-width: 768px) {
-      .series-item {
-        padding: 10px;
+      h1 {
+        font-size: 28px;
       }
     }
 
@@ -101,7 +97,7 @@
       </div>
       <div class="series-item">
         <a href="https://l3irdbir.github.io/index/seriesthai2.html" target="_blank">
-          <img src="https://img5.pic.in.th/file/secure-sv1/10----Netflix-1024x820.png" alt="ซีรีย์ไทย">
+          <img src="https://img5.pic.in.th/file/secure-sv1/10----Netflix-1024x820.jpg" alt="ซีรีย์ไทย">
           <p>ซีรีย์ไทย</p>
         </a>
       </div>
