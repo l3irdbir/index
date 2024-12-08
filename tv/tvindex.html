@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zane ดูหนังฟรี</title>
+  <title></title> 
   <style>
     body {
       margin: 0;
       height: 100%;
       overflow-y: auto;
-      background: linear-gradient(to bottom, #000428, #004e92); /* ท้องฟ้าไล่สี */
+      background: linear-gradient(to bottom, #000428, #004e92);
       font-family: 'Arial', sans-serif;
       color: #ffffff;
       display: flex;
@@ -88,26 +88,29 @@
 
     .series-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       padding: 10px;
     }
 
     .series-item {
-      background-color: rgba(255, 255, 255, 0.1); /* สีโปร่งแสง */
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
-      overflow: hidden; /* ซ่อนขอบภาพ */
+      overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .series-item:hover {
-      transform: translateY(-10px); /* ยกการ์ดขึ้นเมื่อ hover */
+      transform: translateY(-10px);
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
     }
 
     .series-item img {
       width: 100%;
-      height: auto;
+      height: 150px;
       object-fit: cover;
     }
 
@@ -127,6 +130,10 @@
     }
 
     @media (max-width: 768px) {
+      .series-grid {
+        grid-template-columns: 1fr;
+      }
+
       h1 {
         font-size: 28px;
       }
@@ -143,8 +150,9 @@
   <div class="stars"></div>
 
   <div class="playlist-container">
-    <h1></h1>
+    <h1>ดูทีวีออนไลน์</h1>
     <div class="series-grid">
+      <!-- Channel 1 to 8 -->
       <div class="series-item">
         <a href="https://l3irdbir.github.io/index/Movie/mindex.html" target="_blank">
           <img src="https://mthai.com/app/uploads/2021/01/tv-ch3HD-logo.png" alt="ช่อง 3">
@@ -174,75 +182,113 @@
           <img src="https://www.prachachat.net/wp-content/uploads/2020/03/logo-nbt-728x485.jpg" alt="ช่อง NBT">
           <p>ช่อง NBT</p>
         </a>
-        <div class="series-item">
-         <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
           <img src="https://photos.live-tv-channels.org/tv-logo/mvtv-channel-7995.jpg" alt="MVTV THAI">
           <p>MVTV THAI</p>
         </a>
-          <div class="series-item">
-         <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
           <img src="https://www.publicmediaalliance.org/wp-content/uploads/2020/05/image.png" alt="THAI PBS">
           <p>THAI PBS</p>
         </a>
-            <div class="series-item">
-         <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
           <img src="https://altv-cms-images.s3.amazonaws.com/writer/6361e320b20f4ed7b66cb2d4/image_1669603112082531770.jpg" alt="ALTV">
           <p>ALTV</p>
         </a>
-              <div class="series-item">
-         <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+      </div>
+    </div>
+
+    <!-- Channel 9 to 16 -->
+    <div class="series-grid">
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
           <img src="https://pbs.twimg.com/profile_images/1232210975664640000/JVUOIzM5_400x400.jpg" alt="TVB THAI">
           <p>TVB THAI</p>
         </a>
-                 <div class="series-item">
-         <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
           <img src="https://1.bp.blogspot.com/-iriVcbEXNR0/XZ_0u0lN0XI/AAAAAAAAoqk/BPQcQuY75CoSXHVRhAGzXZ98-PEr6DDIQCLcBGAsYHQ/s1600/tptv-channel-logo.png" alt="TPTV">
           <p>TPTV</p>
         </a>
       </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://yt3.ggpht.com/a/AATXAJx9mYmqIkTdxhVQQlwJ0TLoBOQ-Qn4MDEwgXw=s900-c-k-c0xffffffff-no-rj-mo" alt="TNN">
+          <p>TNN</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://s3-symbol-logo.tradingview.com/jkn-global-media-public-company-limited--600.png" alt="JKN">
+          <p>JKN</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://tse4.mm.bing.net/th?id=OIP.NqONB8dSF5SzZnmQedUv6gHaEK&pid=Api&P=0&h=180" alt="ไทบ้านทีวี">
+          <p>ไทบ้านทีวี</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://cms.kapook.com/uploads/tag/42/ID_41851_5c93153cacbdc.jpg" alt="Nation">
+          <p>Nation</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="http://www.2poto.com/wp-content/uploads/2022/09/23.png" alt="workpoints">
+          <p>workpoint</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://www.gmm25.com/2016/upload_2020/images/GMM25.jpg" alt="GMM25">
+          <p>GMM25</p>
+        </a>
+           <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://cms.bml.meeboon.dev/uploads/large_Thairath_TV_Logo_svg_62692c536e.png" alt="ไทยรัฐ">
+          <p>ไทยรัฐ</p>
+        </a>
+          <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://f.ptcdn.info/765/081/000/s1bsqjycpSwSAawXiHg-o.jpg" alt="Amarin">
+          <p>Amarin</p>
+        </a>
+              <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://yt3.ggpht.com/-aYssdFOsIuk/AAAAAAAAAAI/AAAAAAAAAAA/AP0Rw0bl1LA/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="pptv">
+          <p>pptv</p>
+        </a>
+              <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://www.oned.net/static/media/logo.74e0c090058e0669f601.png" alt="One">
+          <p>One</p>
+        </a>
+               <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://mthai.com/app/uploads/2021/03/ch9-mcothd-30-logo.png" alt="MCOT">
+          <p>MCOT</p>
+        </a>
+              <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://yt3.ggpht.com/-aYssdFOsIuk/AAAAAAAAAAI/AAAAAAAAAAA/AP0Rw0bl1LA/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="pptv">
+          <p>pptv</p>
+        </a>
+             <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://lncci.la/wp-content/uploads/2018/01/1.-MVlao.png" alt="MVLAO">
+          <p>MVLAO</p>
+        </a>
+      </div>
     </div>
   </div>
-
-  <script>
-    const starContainer = document.querySelector('.stars');
-    const starCount = 150;
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-
-    for (let i = 0; i < starCount; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-
-      const x = Math.random() * screenWidth;
-      const y = Math.random() * screenHeight;
-
-      const duration = Math.random() * 2 + 1;
-      star.style.animationDuration = `${duration}s`;
-
-      star.style.left = `${x}px`;
-      star.style.top = `${y}px`;
-
-      starContainer.appendChild(star);
-    }
-
-    function createShootingStar() {
-      const shootingStar = document.createElement('div');
-      shootingStar.classList.add('shooting-star');
-
-      const startX = Math.random() * screenWidth;
-      const startY = Math.random() * screenHeight / 2;
-
-      shootingStar.style.left = `${startX}px`;
-      shootingStar.style.top = `${startY}px`;
-
-      starContainer.appendChild(shootingStar);
-
-      setTimeout(() => {
-        starContainer.removeChild(shootingStar);
-      }, 3000);
-    }
-
-    setInterval(createShootingStar, 2000);
-  </script>
 </body>
 </html>
