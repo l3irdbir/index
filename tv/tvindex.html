@@ -3,287 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title> 
+  <title></title>
   <style>
     body {
-      margin: 0;
-      height: 100%;
-      overflow-y: auto;
-      background: linear-gradient(to bottom, #000428, #004e92); /* สีน้ำเงินไล่จากเข้มไปอ่อน */
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
+      margin: 5px;
+      background-color: #000000;
       color: #ffffff;
-      display: flex;
-      flex-direction: column;
     }
-
-    .stars {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 2s infinite ease-in-out;
-      box-shadow: 0 0 5px white;
-    }
-
-    .shooting-star {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: white;
-      border-radius: 50%;
-      box-shadow: 0 0 10px white;
-      animation: shoot 3s ease-in-out infinite;
-      opacity: 0;
-    }
-
-    @keyframes twinkle {
-      0%, 100% {
-        opacity: 0.6;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes shoot {
-      0% {
-        transform: translate(-100px, -100px) scale(0);
-        opacity: 1;
-      }
-      70% {
-        transform: translate(500px, 500px) scale(1.5);
-        opacity: 0.5;
-      }
-      100% {
-        transform: translate(800px, 800px) scale(0);
-        opacity: 0;
-      }
-    }
-
-    .playlist-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-      text-align: center;
-      z-index: 1;
-      position: relative;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-      font-size: 36px;
-      font-weight: bold;
-      color: #ffcc00;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    }
-
-    .series-grid {
+    .playlist {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
     }
-
-    .series-item {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .series-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .series-item img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    .series-item p {
-      margin: 0;
-      padding: 10px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #ffcc00;
+    .item {
       text-align: center;
-      background: rgba(0, 0, 0, 0.8);
-    }
-
-    .series-item a {
+      background: #333333;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+      padding: 15px;
       text-decoration: none;
       color: inherit;
     }
-
-    @media (max-width: 768px) {
-      .series-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
+    .item:hover {
+      background: #444444;
     }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 24px;
-      }
+    .item img {
+      width: 140px;
+      height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .title {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .status {
+      font-size: 12px;
+      color: #cccccc;
+    }
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .navigation a {
+      text-decoration: none;
+      background-color: #444444;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .navigation a:hover {
+      background-color: #555555;
     }
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-
-  <div class="playlist-container">
-    <h1>ดูทีวีออนไลน์</h1>
-    <div class="series-grid">
-      <!-- Channel 1 to 8 -->
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tv3.html" target="_blank">
-          <img src="https://mthai.com/app/uploads/2021/01/tv-ch3HD-logo.png" alt="ช่อง 3">
-          <p>ช่อง 3</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tv5.html" target="_blank">
-          <img src="https://tse4.mm.bing.net/th?id=OIP.W3AQdd1V_dOWKEnUS8Qe9wHaD2&pid=Api&P=0&h=180" alt="ช่อง 5">
-          <p>ช่อง 5</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tv7.html" target="_blank">
-          <img src="https://e7.pngegg.com/pngimages/557/835/png-clipart-thailand-channel-7-royal-thai-army-radio-and-television-channel-5-7-miscellaneous-television.png" alt="ช่อง 7">
-          <p>ช่อง 7</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tv8.html" target="_blank">
-          <img src="https://play-lh.googleusercontent.com/jTMF05rIffeZG7RGBvf-cMkfFzeVG7aBtvbpF37GVbFXrOWfKbTbWCeiRioz7TDdKps" alt="ช่อง 8">
-          <p>ช่อง 8</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tvnbt.html" target="_blank">
-          <img src="https://www.prachachat.net/wp-content/uploads/2020/03/logo-nbt-728x485.jpg" alt="ช่อง NBT">
-          <p>ช่อง NBT</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/mvth.html" target="_blank">
-          <img src="https://photos.live-tv-channels.org/tv-logo/mvtv-channel-7995.jpg" alt="MVTV THAI">
-          <p>MVTV THAI</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tvpbs.html" target="_blank">
-          <img src="https://www.publicmediaalliance.org/wp-content/uploads/2020/05/image.png" alt="THAI PBS">
-          <p>THAI PBS</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/altv.html" target="_blank">
-          <img src="https://altv-cms-images.s3.amazonaws.com/writer/6361e320b20f4ed7b66cb2d4/image_1669603112082531770.jpg" alt="ALTV">
-          <p>ALTV</p>
-        </a>
-      </div>
-    </div>
-
-    <!-- Channel 9 to 16 -->
-    <div class="series-grid">
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tvtvb.html" target="_blank">
-          <img src="https://pbs.twimg.com/profile_images/1232210975664640000/JVUOIzM5_400x400.jpg" alt="TVB THAI">
-          <p>TVB THAI</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tptv.html" target="_blank">
-          <img src="https://1.bp.blogspot.com/-iriVcbEXNR0/XZ_0u0lN0XI/AAAAAAAAoqk/BPQcQuY75CoSXHVRhAGzXZ98-PEr6DDIQCLcBGAsYHQ/s1600/tptv-channel-logo.png" alt="TPTV">
-          <p>TPTV</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/tnn.html" target="_blank">
-          <img src="https://yt3.ggpht.com/a/AATXAJx9mYmqIkTdxhVQQlwJ0TLoBOQ-Qn4MDEwgXw=s900-c-k-c0xffffffff-no-rj-mo" alt="TNN">
-          <p>TNN</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/jkn.html" target="_blank">
-          <img src="https://s3-symbol-logo.tradingview.com/jkn-global-media-public-company-limited--600.png" alt="JKN">
-          <p>JKN</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/thaiban.html" target="_blank">
-          <img src="https://tse4.mm.bing.net/th?id=OIP.NqONB8dSF5SzZnmQedUv6gHaEK&pid=Api&P=0&h=180" alt="ไทบ้านทีวี">
-          <p>ไทบ้านทีวี</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/nation.html" target="_blank">
-          <img src="https://cms.kapook.com/uploads/tag/42/ID_41851_5c93153cacbdc.jpg" alt="Nation">
-          <p>Nation</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/workpoints.html" target="_blank">
-          <img src="http://www.2poto.com/wp-content/uploads/2022/09/23.png" alt="workpoints">
-          <p>workpoint</p>
-        </a>
-      </div>
-      <div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/gmm.html" target="_blank">
-          <img src="https://www.gmm25.com/2016/upload_2020/images/GMM25.jpg" alt="GMM25">
-          <p>GMM25</p>
-        </a>
-<div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/mcot.html" target="_blank">
-          <img src="https://mthai.com/app/uploads/2021/03/ch9-mcothd-30-logo.png" alt="MCOT">
-          <p>MCOT</p>
-        </a>
-<div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/one.html" target="_blank">
-          <img src="https://www.oned.net/static/media/logo.74e0c090058e0669f601.png" alt="One">
-          <p>One</p>
-        </a>
-<div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/thairat.html" target="_blank">
-          <img src="https://cms.bml.meeboon.dev/uploads/large_Thairath_TV_Logo_svg_62692c536e.png" alt="ไทยรัฐ">
-          <p>ไทยรัฐ</p>
-        </a>
-<div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/amarin.html" target="_blank">
-          <img src="https://f.ptcdn.info/765/081/000/s1bsqjycpSwSAawXiHg-o.jpg" alt="Amarin">
-          <p>Amarin</p>
-        </a>
-<div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/pptv.html" target="_blank">
-          <img src="https://yt3.ggpht.com/-aYssdFOsIuk/AAAAAAAAAAI/AAAAAAAAAAA/AP0Rw0bl1LA/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="pptv">
-          <p>pptv</p>
-        </a>
-<div class="series-item">
-        <a href="https://l3irdbir.github.io/index/tv/mvlao.html" target="_blank">
-          <img src="https://lncci.la/wp-content/uploads/2018/01/1.-MVlao.png" alt="MVLAO">
-          <p>MVLAO</p>
-        </a>
-      </div>
-    </div>
+  <h1></h1>
+  <div class="playlist">
+    <!-- Movie Items -->
+    <a href="https://l3irdbir.github.io/index/tv/tv3.html" target="_blank" class="item">
+      <img src="https://img2.pic.in.th/pic/-27f224b13d09710bf9.png" alt="ช่อง 3">
+      <div class="title">ช่อง 3</div>
+      <div class="status"></div>
+    </a>
+<a href="https://l3irdbir.github.io/index/tv/tv5.html" target="_blank" class="item">
+      <img src="https://img5.pic.in.th/file/secure-sv1/-279.png" alt="ช่อง 5">
+      <div class="title">ช่อง 5</div>
+      <div class="status"></div>
+    </a>
+<a href="https://l3irdbir.github.io/index/tv/tv7.html" target="_blank" class="item">
+      <img src="https://img5.pic.in.th/file/secure-sv1/-127b668cb9ded6e364.png" alt="ช่อง 7">
+      <div class="title">ช่อง 7</div>
+      <div class="status"></div>
+    </a>
+    <a href="https://l3irdbir.github.io/index/tv/tv8.html" target="_blank" class="item">
+      <img src="https://img5.pic.in.th/file/secure-sv1/-1500b97e3c079f284.png" alt="ช่อง 8">
+      <div class="title">ช่อง 8</div>
+      <div class="status"></div>
+     </a>
+<a href="https://l3irdbir.github.io/index/tv/tvnbt.html" target="_blank" class="item">
+      <img src="https://img5.pic.in.th/file/secure-sv1/-2831d85b5bdc28cc0.png" alt="ช่อง NBT">
+      <div class="title">ช่อง NBT</div>
+      <div class="status"></div>
+    </a>    
+<a href="https://l3irdbir.github.io/index/tv/mvth.html" target="_blank" class="item">
+      <img src="https://yt3.ggpht.com/a/AATXAJxvBsFGxb0akxDPAenRtImwpVPTMM2PpXoohw=s900-c-k-c0xffffffff-no-rj-mo" alt="MVTV THAI">
+      <div class="title">MVTV THAI</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/tvpbs.html" target="_blank" class="item">
+      <img src="https://www.publicmediaalliance.org/wp-content/uploads/2020/05/image.png" alt="THAI PBS">
+      <div class="title">THAI PBS</div>
+      <div class="status"></div>
+    </a> 
+     <a href="https://l3irdbir.github.io/index/tv/altv.html" target="_blank" class="item">
+      <img src="https://altv-cms-images.s3.amazonaws.com/writer/6361e320b20f4ed7b66cb2d4/image_1669603112082531770.jpg" alt="ALTV">
+      <div class="title">ALTV</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/tvtvb.html" target="_blank" class="item">
+      <img src="https://pbs.twimg.com/profile_images/1232210975664640000/JVUOIzM5_400x400.jpg" alt="TVB THAI">
+      <div class="title">TVB THAI</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/tptv.html" target="_blank" class="item">
+      <img src="https://1.bp.blogspot.com/-iriVcbEXNR0/XZ_0u0lN0XI/AAAAAAAAoqk/BPQcQuY75CoSXHVRhAGzXZ98-PEr6DDIQCLcBGAsYHQ/s1600/tptv-channel-logo.png" alt="TPTV">
+      <div class="title">TPTV</div>
+      <div class="status"></div>
+    </a> 
+     <a href="https://l3irdbir.github.io/index/tv/tnn.html" target="_blank" class="item">
+      <img src="https://yt3.ggpht.com/a/AATXAJx9mYmqIkTdxhVQQlwJ0TLoBOQ-Qn4MDEwgXw=s900-c-k-c0xffffffff-no-rj-mo" alt="TNN">
+      <div class="title">TNN</div>
+      <div class="status"></div>
+    </a> 
+    
+<a href="https://l3irdbir.github.io/index/tv/jkn.html" target="_blank" class="item">
+      <img src="https://s3-symbol-logo.tradingview.com/jkn-global-media-public-company-limited--600.png" alt="JKN">
+      <div class="title">JKN</div>
+      <div class="status"></div>
+    </a>      
+ <a href="https://l3irdbir.github.io/index/tv/thaiban.html" target="_blank" class="item">
+      <img src="https://tse4.mm.bing.net/th?id=OIP.NqONB8dSF5SzZnmQedUv6gHaEK&pid=Api&P=0&h=180" alt="ไทบ้านทีวี">
+      <div class="title">ไทบ้านทีวี</div>
+      <div class="status"></div>
+    </a> 
+      <a href="https://l3irdbir.github.io/index/tv/nation.html" target="_blank" class="item">
+      <img src="https://img2.pic.in.th/pic/nation-tv.jpg" alt="Nation">
+      <div class="title">Nation</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/workpoints.html" target="_blank" class="item">
+      <img src="http://www.2poto.com/wp-content/uploads/2022/09/23.png" alt="workpoints">
+      <div class="title">workpoints</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/gmm.html" target="_blank" class="item">
+      <img src="http://www.gmm25.com/asset/img/tv-banner.png" alt="GMM25">
+      <div class="title">GMM25</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/mcot.html" target="_blank" class="item">
+      <img src="https://positioningmag.com/wp-content/uploads/2019/05/cot.png" alt="MCOT">
+      <div class="title">MCOT</div>
+      <div class="status"></div>
+    </a> 
+   <a href="https://l3irdbir.github.io/index/tv/one.html" target="_blank" class="item">
+      <img src="https://www.oned.net/static/media/logo.74e0c090058e0669f601.png" alt="One">
+      <div class="title">One</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/thairat.html" target="_blank" class="item">
+      <img src="https://cms.bml.meeboon.dev/uploads/large_Thairath_TV_Logo_svg_62692c536e.png" alt="ไทยรัฐ">
+      <div class="title">ไทยรัฐ</div>
+      <div class="status"></div>
+    </a> 
+   <a href="https://l3irdbir.github.io/index/tv/amarin.html" target="_blank" class="item">
+      <img src="https://f.ptcdn.info/765/081/000/s1bsqjycpSwSAawXiHg-o.jpg" alt="Amarin">
+      <div class="title">Amarin</div>
+      <div class="status"></div>
+    </a> 
+    <a href="https://l3irdbir.github.io/index/tv/pptv.html" target="_blank" class="item">
+      <img src="https://yt3.ggpht.com/-aYssdFOsIuk/AAAAAAAAAAI/AAAAAAAAAAA/AP0Rw0bl1LA/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="pptv">
+      <div class="title">pptv</div>
+      <div class="status"></div>
+    </a>
+    <a href="https://l3irdbir.github.io/index/tv/mvlao.html" target="_blank" class="item">
+      <img src="https://lncci.la/wp-content/uploads/2018/01/1.-MVlao.png" alt="MVLAO">
+      <div class="title">MVLAO</div>
+      <div class="status"></div>
+    </a>
+    
   </div>
 </body>
 </html>
