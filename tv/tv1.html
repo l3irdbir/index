@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zane ดูหนังฟรี</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #000000, #333333); /* พื้นหลังแบบไล่สี */
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .playlist-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .series-item {
+      background-color: rgba(255, 255, 255, 0.1); /* สีโปร่งแสง */
+      border-radius: 10px;
+      overflow: hidden; /* ซ่อนขอบภาพ */
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .series-item:hover {
+      transform: translateY(-10px); /* ยกการ์ดขึ้นเมื่อ hover */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .series-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .series-item p {
+      margin: 0;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .series-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="playlist-container">
+    <h1>Zane ดูหนังฟรี</h1>
+    <div class="series-grid">
+      <div class="series-item">
+        <a href="https://l3irdbir.github.io/index/tv/indextv.html" target="_blank">
+          <img src="https://www.banidea.com/wp-content/uploads/2014/04/TV-Digital-Thai-Logo.png" alt="ทีวีดิจิตอลไทย">
+          <p>ทีวีดิจิตอลไทย</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://l3irdbir.github.io/index/seriesthai2.html" target="_blank">
+          <img src="https://cdn.freebiesupply.com/logos/large/2x/sports-logo-black-and-white.png" alt="ดูกีฬา">
+          <p>ดูกีฬา</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/1825/1825374.png" alt="ดูสารคดี">
+          <p>ดูสารคดี</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://wallpapercave.com/wp/wp9104870.jpg" alt="ดูการ์ตูน">
+          <p>ดูการ์ตูน</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
