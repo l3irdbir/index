@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zane ดูหนังฟรี</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100%;
+      overflow-y: auto;
+      background: linear-gradient(to bottom, #000428, #004e92); /* ท้องฟ้าไล่สี */
+      font-family: 'Arial', sans-serif;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+      box-shadow: 0 0 5px white;
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px white;
+      animation: shoot 3s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translate(-100px, -100px) scale(0);
+        opacity: 1;
+      }
+      70% {
+        transform: translate(500px, 500px) scale(1.5);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translate(800px, 800px) scale(0);
+        opacity: 0;
+      }
+    }
+
+    .playlist-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 36px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .series-item {
+      background-color: rgba(255, 255, 255, 0.1); /* สีโปร่งแสง */
+      border-radius: 10px;
+      overflow: hidden; /* ซ่อนขอบภาพ */
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .series-item:hover {
+      transform: translateY(-10px); /* ยกการ์ดขึ้นเมื่อ hover */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .series-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .series-item p {
+      margin: 0;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .series-item a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="playlist-container">
+    <h1>Zane ดูหนังฟรี</h1>
+    <div class="series-grid">
+      <div class="series-item">
+        <a href="https://l3irdbir.github.io/index/Movie/mindex.html" target="_blank">
+          <img src="https://t1.blockdit.com/photos/2021/12/61bcc7a968a0c32eec40e661_800x0xcover_VWk4piFq.jpg" alt="ทีวีดิจิตอลไทย">
+          <p>ทีวีดิจิตอลไทย</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://l3irdbir.github.io/index/seriesthai2.html" target="_blank">
+          <img src="https://img5.pic.in.th/file/secure-sv1/10----Netflix-1024x820.jpg" alt="ทีวีดูกีฬา">
+          <p>ทีวีดูกีฬา</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img5.pic.in.th/file/secure-sv1/bqvlsdrcq8sr.png" alt="ข่าวต่างประเทศ">
+          <p>ข่าวต่างประเทศ</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img.salehere.co.th/p/1200x0/2022/11/17/bq2qj5rajcpe.jpg" alt="ทีวีภาพยนต์">
+          <p>ทีวีภาพยนต์</p>
+        </a>
+      </div>
+      <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img.salehere.co.th/p/1200x0/2022/11/17/bq2qj5rajcpe.jpg" alt="ดูสารคดี">
+          <p>ดูสารคดี</p>
+        </a>
+         <div class="series-item">
+        <a href="https://drive.google.com/file/d/1PXa2yfJf2wmYuCd5Pijf5Jbey0omi1Ts/view?usp=drive_link" target="_blank">
+          <img src="https://img.salehere.co.th/p/1200x0/2022/11/17/bq2qj5rajcpe.jpg" alt="ทีวีการ์ตูน">
+          <p>ดูการ์ตูน</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const starContainer = document.querySelector('.stars');
+    const starCount = 150;
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+
+      const x = Math.random() * screenWidth;
+      const y = Math.random() * screenHeight;
+
+      const duration = Math.random() * 2 + 1;
+      star.style.animationDuration = `${duration}s`;
+
+      star.style.left = `${x}px`;
+      star.style.top = `${y}px`;
+
+      starContainer.appendChild(star);
+    }
+
+    function createShootingStar() {
+      const shootingStar = document.createElement('div');
+      shootingStar.classList.add('shooting-star');
+
+      const startX = Math.random() * screenWidth;
+      const startY = Math.random() * screenHeight / 2;
+
+      shootingStar.style.left = `${startX}px`;
+      shootingStar.style.top = `${startY}px`;
+
+      starContainer.appendChild(shootingStar);
+
+      setTimeout(() => {
+        starContainer.removeChild(shootingStar);
+      }, 3000);
+    }
+
+    setInterval(createShootingStar, 2000);
+  </script>
+</body>
+</html>
