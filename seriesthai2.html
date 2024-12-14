@@ -10,11 +10,16 @@
       margin: 20px;
       background-color: #000000; /* พื้นหลังสีดำ */
       color: #ffffff; /* ข้อความสีขาว */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh; /* ให้ความสูงเต็มหน้าจอ */
     }
     .playlist {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 20px;
+      flex-grow: 1; /* ให้พื้นที่รายการใช้ที่เหลือ */
     }
     .item {
       text-align: center;
@@ -44,12 +49,28 @@
       font-size: 12px;
       color: #cccccc; /* ข้อความสีเทาอ่อน */
     }
+    .next-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #444444;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 20px auto; /* ตรงกลางและมีช่องว่างรอบๆ */
+      transition: background-color 0.3s;
+    }
+    .next-button:hover {
+      background-color: #555555;
+    }
   </style>
 </head>
 <body>
   <h1></h1>
   <div class="playlist">
-    <a href="https://l3irdbir.github.io/index/See/TomorrowandI/TomorrowandIindex.html" target="_blank" class="item">
+    <!-- Your existing items here -->
+<a href="https://l3irdbir.github.io/index/See/TomorrowandI/TomorrowandIindex.html" target="_blank" class="item">
       <img src="https://img2.pic.in.th/pic/Tomorrow-and-I-2024.png" alt="Tomorrow and I (2024) อนาคต
 ">
       <div class="title">Tomorrow and I (2024) อนาคต
@@ -117,5 +138,8 @@
       <div class="status">(จบแล้ว)</div>
     </a>
   </div>
+  
+  <!-- Next button -->
+  <a href="https://l3irdbir.github.io/index/See/seriesindexpage2.html" class="next-button">Next</a>
 </body>
 </html>
