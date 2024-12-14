@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Playlist</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -49,7 +49,12 @@
       font-size: 12px;
       color: #cccccc; /* ข้อความสีเทาอ่อน */
     }
-    .next-button {
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .navigation-buttons a {
       display: inline-block;
       padding: 10px 20px;
       background-color: #444444;
@@ -58,29 +63,28 @@
       font-weight: bold;
       text-decoration: none;
       border-radius: 5px;
-      margin: 20px auto; /* ตรงกลางและมีช่องว่างรอบๆ */
       transition: background-color 0.3s;
     }
-    .next-button:hover {
+    .navigation-buttons a:hover {
       background-color: #555555;
     }
   </style>
 </head>
 <body>
-  <h1></h1>
+  <h1>Playlist</h1>
   <div class="playlist">
-    <!-- Your existing items here -->
-<a href="https://l3irdbir.github.io/index/See/TomorrowandI/TomorrowandIindex.html" target="_blank" class="item">
-      <img src="https://img2.pic.in.th/pic/Tomorrow-and-I-2024.png" alt="Tomorrow and I (2024) อนาคต
-">
-      <div class="title">Tomorrow and I (2024) อนาคต
-</div>
+    <!-- Example Item -->
+    <a href="https://l3irdbir.github.io/index/See/TomorrowandI/TomorrowandIindex.html" target="_blank" class="item">
+      <img src="https://img2.pic.in.th/pic/Tomorrow-and-I-2024.png" alt="Tomorrow and I (2024) อนาคต">
+      <div class="title">Tomorrow and I (2024) อนาคต</div>
       <div class="status">(ยังไม่จบ)</div>
     </a>
   </div>
-  
-  <!-- Next button -->
-  <a href="https://l3irdbir.github.io/index/See/seriesthai2.html">Previous</a>
-  <a href="https://l3irdbir.github.io/index/See/seriesindexpage2.html" class="next-button">Next</a>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <a href="https://l3irdbir.github.io/index/tv/seriesthai.html">Back</a>
+    <a href="https://l3irdbir.github.io/index/See/seriesindexpage2.html">Next</a>
+  </div>
 </body>
 </html>
