@@ -7,35 +7,30 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #000000; /* พื้นหลังสีดำ */
-      color: #ffffff; /* ข้อความสีขาว */
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100vh; /* ให้ความสูงเต็มหน้าจอ */
+      margin: 5px;
+      background-color: #000000;
+      color: #ffffff;
     }
     .playlist {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      flex-grow: 1; /* ให้พื้นที่รายการใช้ที่เหลือ */
+      gap: 10px;
     }
     .item {
       text-align: center;
-      background: #333333; /* พื้นหลังสีเทาเข้ม */
+      background: #333333;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
       padding: 15px;
-      text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
-      color: inherit; /* ใช้สีข้อความจาก CSS ของหน้า */
+      text-decoration: none;
+      color: inherit;
     }
     .item:hover {
-      background: #444444; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+      background: #444444;
     }
     .item img {
-      width: 100px; /* ความกว้าง 100px */
-      height: 150px; /* ความสูง 150px */
+      width: 100px;
+      height: 150px;
       border-radius: 8px;
       object-fit: cover;
     }
@@ -43,25 +38,24 @@
       margin-top: 10px;
       font-size: 14px;
       font-weight: bold;
-      color: #ffffff; /* ข้อความสีขาว */
     }
     .status {
       font-size: 12px;
-      color: #cccccc; /* ข้อความสีเทาอ่อน */
+      color: #cccccc;
     }
-    .next-button {
-      display: inline-block;
-      padding: 10px 20px;
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .navigation a {
+      text-decoration: none;
       background-color: #444444;
       color: white;
-      text-align: center;
-      font-weight: bold;
-      text-decoration: none;
+      padding: 10px 20px;
       border-radius: 5px;
-      margin: 20px auto; /* ตรงกลางและมีช่องว่างรอบๆ */
-      transition: background-color 0.3s;
+      font-size: 16px;
     }
-    .next-button:hover {
+    .navigation a:hover {
       background-color: #555555;
     }
   </style>
@@ -69,10 +63,9 @@
 <body>
   <h1></h1>
   <div class="playlist">
-    <!-- Your existing items here -->
-<a href="https://l3irdbir.github.io/index/See/TomorrowandI/TomorrowandIindex.html" target="_blank" class="item">
-      <img src="https://img2.pic.in.th/pic/Tomorrow-and-I-2024.png" alt="Tomorrow and I (2024) อนาคต
-">
+    <!-- Movie Items -->
+   <a href="https://l3irdbir.github.io/index/See/TomorrowandI/TomorrowandIindex.html" target="_blank" class="item">
+      <img src="https://img2.pic.in.th/pic/Tomorrow-and-I-2024.png" alt="Tomorrow and I (2024) อนาคต">
       <div class="title">Tomorrow and I (2024) อนาคต
 </div>
       <div class="status">(ยังไม่จบ)</div>
@@ -137,15 +130,18 @@
       <div class="title">Mate The Series (2024) เมท เดอะ ซีรีส์</div>
       <div class="status">(จบแล้ว)</div>
     </a>
-  </div>
-  <a href="https://l3irdbir.github.io/index/See/high-school-frenemy/high-school-frenemyindex.html" target="_blank" class="item">
+    <a href="https://l3irdbir.github.io/index/See/high-school-frenemy/high-school-frenemyindex.html" target="_blank" class="item">
       <img src="https://img2.pic.in.th/pic/High-School-Frenemy-2024-1.png" alt="High School Frenemy (2024) มิตรภาพคราบศัตรู">
       <div class="title">High School Frenemy (2024) มิตรภาพคราบศัตรู</div>
       <div class="status">(จบแล้ว)</div>
     </a>
   </div>
   
-  <!-- Next button -->
-  <a href="https://l3irdbir.github.io/index/See/seriesindexpage2.html" class="next-button">Next</a>
+
+    <!-- Add more items here -->
+  </div>
+  <div class="navigation">
+    <a href="https://l3irdbir.github.io/index/See/seriesindexpage2.html">Next</a>
+  </div>
 </body>
 </html>
